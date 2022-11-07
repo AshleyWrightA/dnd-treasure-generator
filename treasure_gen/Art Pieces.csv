@@ -1,0 +1,76 @@
+Name,Weight,Crafting-Material-1,Crafting-Material-2
+Painting,0,,
+Tapestry,0,Textile,
+Rug,0,Textile,
+Engraved Wood,0,Wood,
+Engraved Stone,0,Mineral,
+Bust,3,Metal/Mineral/Wood,
+Sculpture,0,Metal/Mineral/Wood,
+Statuette,0,Metal/Mineral/Wood,
+Bracelet,1,Metal,Gem
+Ring,1,Metal,Gem
+Chain,1,Metal,Gem
+Necklace,1,Metal,Gem
+Amulet,1,Metal,Gem
+Choker,1,Metal,Gem
+Broach,1,Metal,Gem
+Pin,1,Metal,Gem
+Earrings,1,Metal,Gem
+Circlet,1,Metal,Gem
+Diadem,1,Metal,Gem
+Robe,1,Textile,
+Gown,1,Textile,
+Cloak,1,Textile,
+Coat,1,Textile,
+Blouse,1,Textile,
+Skirt,1,Textile,
+Shirt,1,Textile,
+Boots,1,Textile,
+Hood,1,Textile,
+Cape,1,Textile,
+Sash,1,Textile,
+Belt,1,Textile,
+Hat,1,Textile,
+Jerkin,1,Textile,
+Plate,1,Glass/Metal/Mineral/Wood,
+Cup,1,Glass/Metal/Mineral/Wood,
+Goblet,1,Glass/Metal/Mineral/Wood,
+Urn,1,Metal/Mineral,
+Bowl,1,Glass/Metal/Mineral/Wood,
+Pitcher,1,Glass/Metal/Mineral/Wood,
+Drinking Horn,1,Bone/Metal/Wood,
+Knife,1,Metal,
+Spoon,1,Metal/Wood,
+Fork,1,Metal/Wood,
+Platter,1,Metal,
+Decanter,1,Glass,
+Amphora,2,Mineral,
+Harp,2,,
+Lute,2,,
+Lyre,2,,
+Mandolin,2,,
+Drum,2,,
+Musical Horn,1,,
+Bell,2,,
+Chime,1,,
+Flute,2,,
+Gong,2,Metal,
+Scepter,2,Metal,Gem
+Orb,2,Glass,Gem
+Crown,2,Metal/Mineral,Gem
+Rod,2,Metal,Gem
+Prayer Beads,1,Gem/Glass/Metal/Wood,
+Censor,2,Metal,
+Brazier,3,Metal,
+Incense,1,,
+Fancy Tome,2,,
+Mirror,3,,
+Music Box,1,,
+Engraved Egg,1,Gem/Metal,
+Vase,2,Glass/Metal/Mineral/Wood,
+Tea Set,2,Glass/Metal/Mineral/Wood,
+Holy Symbol,1,Metal,
+Tusk,1,Bone,
+Candle Holder,1,Metal,
+Comb,1,Bone/Wood,
+Brocade,1,Textile,

@@ -1,0 +1,109 @@
+Name,Category,Rarity,Weight,Crafting-Material-1
+Sack of Apples,Fruit,Common,2,
+Sack of Melons,Fruit,Common,2,
+Sack of Peaches,Fruit,Common,2,
+Sack of Pears,Fruit,Common,2,
+Sack of Plums,Fruit,Common,2,
+Sack of Figs,Fruit,Uncommon,2,
+Sack of Dates,Fruit,Uncommon,2,
+Sack of Pomegranates,Fruit,Common,2,
+Jar of Olives,Fruit,Common,2,
+Sack of Citrons,Fruit,Common,2,
+Sack of Strawberries,Fruit,Common,2,
+Sack of Grapes,Fruit,Common,2,
+Sack of Leeks,Vegetable,Common,2,
+Sack of Radishes,Vegetable,Common,2,
+Sack of Peas,Vegetable,Uncommon,2,
+Sack of Cabbages,Vegetable,Common,2,
+Sack of Carrots,Vegetable,Common,2,
+Sack of Parsnips,Vegetable,Common,2,
+Sack of Turnips,Vegetable,Common,2,
+Sack of Cucumbers,Vegetable,Common,2,
+Sack of Onions,Vegetable,Common,2,
+Sack of Beets,Vegetable,Common,2,
+Sack of Lettuce,Vegetable,Common,2,
+Sack of Artichokes,Vegetable,Common,2,
+Sack of Garlic,Vegetable,Common,2,
+Sack of Mushrooms,Vegetable,Uncommon,2,
+Sack of Beans,Grain,Common,3,
+Sack of Wheat,Grain,Common,3,
+Sack of Oats,Grain,Common,3,
+Sack of Rye,Grain,Common,3,
+Sack of Flax,Grain,Common,3,
+Sack of Barley,Grain,Common,3,
+Crate of Dried Pork,Dried Meat,Rare,3,
+Crate of Dried Lamb,Dried Meat,Rare,3,
+Crate of Dried Venison,Dried Meat,Very-Rare,3,
+Crate of Dried Beef,Dried Meat,Rare,3,
+Crate of Dried Rabbit,Dried Meat,Very-Rare,3,
+Crate of Dried Chicken,Dried Meat,Rare,3,
+Crate of Dried Wild Bird,Dried Meat,Very-Rare,3,
+Crate of Dried Fish,Dried Meat,Rare,3,
+Pouch of Pepper,Spices,Uncommon,1,
+Pouch of Cinnamon,Spices,Rare,1,
+Pouch of Cloves,Spices,Rare,1,
+Pouch of Nutmeg,Spices,Rare,1,
+Pouch of Ginger,Spices,Rare,1,
+Pouch of Saffron,Spices,Very-Rare,1,
+Pouch of Cardamom,Spices,Rare,1,
+Pouch of Coriander,Spices,Rare,1,
+Pouch of Cumin,Spices,Rare,1,
+Pouch of Turmeric,Spices,Rare,1,
+Pouch of Anis,Spices,Rare,1,
+Pouch of Caraway,Spices,Rare,1,
+Pouch of Mustard,Spices,Rare,1,
+Cask of Mead,Alcohol,Rare,3,
+Cask of Beer,Alcohol,Uncommon,3,
+Cask of Ale,Alcohol,Uncommon,3,
+Cask of Wine,Alcohol,Rare,3,
+Cask of Brandy,Alcohol,Rare,3,
+Bolt of Cloth,Textile,Common,1,Textile
+Bolt of Wool,Textile,Common,1,Textile
+Bolt of Linen,Textile,Uncommon,1,Textile
+Bolt of Silk,Textile,Very-Rare,1,Textile
+Bolt of Hemp Cloth,Textile,Common,1,Textile
+Bolt of Cotton,Textile,Rare,1,Textile
+Animal Hide,Textile,Common,1,Hide
+Bolt of Fur,Textile,Uncommon,1,Hide
+Bolt of Leather,Textile,Uncommon,2,Leather
+Pile of Bones,Animal Product,Common,1,Bone
+Bundle of Sinew,Animal Product,Uncommon,1,
+Sack of Feathers,Animal Product,Common,1,
+Jar of Wax,Animal Product,Common,1,
+Jar of Beeswax,Animal Product,Rare,1,
+Honey,Animal Product,Rare,2,
+Glass of White Dye,Dyes,Uncommon,1,Dye
+Glass of Black Dye,Dyes,Uncommon,1,Dye
+Glass of Grey Dye,Dyes,Uncommon,1,Dye
+Glass of Brown Dye,Dyes,Common,1,Dye
+Glass of Blue Dye,Dyes,Uncommon,1,Dye
+Glass of Red Dye,Dyes,Rare,1,Dye
+Glass of Purple Dye,Dyes,Very-Rare,1,Dye
+Glass of Orange Dye,Dyes,Common,1,Dye
+Glass of Green Dye,Dyes,Uncommon,1,Dye
+Glass of Yellow Dye,Dyes,Common,1,Dye
+Crate/Pallet of Limestone,Ore,Uncommon,4,Mineral
+Crate/Pallet of Marble,Ore,Rare,4,Mineral
+Crate/Pallet of Clay,Ore,Uncommon,4,Mineral
+Crate/Pallet of Slate,Ore,Uncommon,4,Mineral
+Crate/Pallet of Copper Ore,Ore,Rare,4,Mineral
+Crate/Pallet of Iron Ore,Ore,Rare,4,Mineral
+Crate/Pallet of Tin Ore,Ore,Rare,4,Mineral
+Cauldron of Pitch,Ore,Very-Rare,4,
+Crate/Pallet Salt,Ore,Common,3,
+Iron Bar,Refined Ore,Rare,3,
+Tin Bar,Refined Ore,Rare,3,
+Bronze Bar,Refined Ore,Rare,3,
+Steel Bar,Refined Ore,Very-Rare,3,
+Box of Charcoal,Refined Ore,Uncommon,4,
+Box of Candles,Artisanal,Uncommon,3,
+Box of Tools,Artisanal,Uncommon,3,
+Roll of Parchement,Artisanal,Uncommon,1,
+Roll of Vellum,Artisanal,Rare,1,
+Roll of Papyrus,Artisanal,Rare,1,
+Crate of Glass,Artisanal,Rare,3,
+Crate of Pottery,Artisanal,Uncommon,3,Glass
+Bundle of Plant Fibre,Artisanal,Common,1,
+Bundle/Pile of Firewood,Wood,Common,3,Plant
+Bundle/Pile of Hardwood,Wood,Uncommon,3,Wood
+,,,,Wood
