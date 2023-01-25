@@ -1,11 +1,13 @@
 import csv
 import random
 
+from treasure_gen.components.rarity import RarityFactory
+from treasure_gen.components.quality import QualityFactory
+
 from crafting_material import CraftingMaterial
-import treasure
 
 
-class Art(treasure.Treasure):
+class Art():
     """Art objects have randomly determined rarities & some art-pieces have variable weight. They can have 1, 2 or no
     crafting materials."""
 
@@ -16,7 +18,9 @@ class Art(treasure.Treasure):
         super().__init__()
 
         self.treasure_form = "Art-Piece"
-        self._set_quality()
+
+        self.quality = QualityFactory().get_random_quality()
+        self.rarity = RarityFactory().get_random_rarity(40, 30, 20, 10)
 
         self._load_art_dict()
         self._art_piece = self._build_treasure_object(self.treasure_dict.items())
@@ -49,9 +53,6 @@ class Art(treasure.Treasure):
             self.market_limits = ["Town", "City"]
         elif self.rarity == "Rare" or "Very-Rare":
             self.market_limits = ["City"]
-
-    def _set_art_rarity(self):
-        self.rarity = "".join(random.choices(("Common", "Uncommon", "Rare", "Very-Rare"), weights=(40, 30, 20, 10)))
 
     def _set_art_weight(self):
         art_piece_weights = ["1 (Tiny)", "2 (Small)", "3 (Medium)", "4 (Big)", "5 (Large)"]

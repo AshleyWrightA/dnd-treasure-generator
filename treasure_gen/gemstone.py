@@ -1,7 +1,9 @@
 # Standard Library
 import csv
+import random
 # Local
 from crafting_material import CraftingMaterial
+from treasure_gen.components import quality as q
 import treasure
 
 
@@ -67,3 +69,10 @@ class Gemstone(treasure.Treasure):
             self.crafting_material_1 = CraftingMaterial(self.rarity, self._gemstone[1]["Crafting-Material-1"])
         if len(self._gemstone[1]["Crafting-Material-2"]) != 0:
             self.crafting_material_2 = CraftingMaterial(self.rarity, self._gemstone[1]["Crafting-Material-2"])
+
+    def _set_quality(self):
+        """Randomly determine a treasures quality. 30%/55%/15% of Inferior, Normal or Superior respectively.
+        A new value is not set if the result is 'Normal', leaving self.quality as None."""
+        temp_quality = (random.choices((q.Inferior, q.Normal, q.Superior), (30, 55, 15)))
+        if temp_quality != q.Normal:
+            self.quality = temp_quality

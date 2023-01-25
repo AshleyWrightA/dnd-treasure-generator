@@ -4,6 +4,7 @@ import random
 # Third-Party
 import dice
 # Local
+from treasure_gen.components import quality
 
 
 class Treasure(ABC):
@@ -21,20 +22,11 @@ class Treasure(ABC):
         self.name = None
         self.crafting_material_1 = None
         self.crafting_material_2 = None
-        self.quality = None
-        self.rarity = None
         self.treasure_form = None
         self.value = None
         self.weight = None
         self.appraisal_DC = None
         self.market_limits = None
-
-    def _set_quality(self):
-        """Randomly determine a treasures quality. 30%/55%/15% of Inferior, Normal or Superior respectively.
-        A new value is not set if the result is 'Normal', leaving self.quality as None."""
-        temp_quality = "".join(random.choices(("Inferior", "Normal", "Superior"), (30, 55, 15)))
-        if temp_quality != "Normal":
-            self.quality = temp_quality
 
     def _appraisal(self, appraisal_dice, appraisal_multiplier_list):
         """Takes a string containing the dice to roll and takes a list of multipliers.
