@@ -3,8 +3,7 @@ import csv
 import random
 # Local
 from crafting_material import CraftingMaterial
-from treasure_gen.components import quality as q
-import treasure
+from treasure_gen.treasure_components import quality as q, treasure
 
 
 class Gemstone(treasure.Treasure):

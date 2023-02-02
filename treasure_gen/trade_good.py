@@ -1,6 +1,6 @@
 import csv
 
-import treasure
+from treasure_gen.treasure_components import treasure
 from crafting_material import CraftingMaterial
 
 
@@ -9,6 +9,7 @@ class Trade_Good(treasure.Treasure):
     They also have categories which affect where they can be found. (An ancient dungeon shouldn't contain
     fresh fruit for example)"""
 
+    TREASURE_FORM = "Trade-Good"
     TRADE_GOOD_DICE = "1d6"
     TRADE_GOOD_MULTIPLIER = [1, 5, 10, 50]
 
@@ -16,7 +17,6 @@ class Trade_Good(treasure.Treasure):
         super().__init__()
 
         self._set_quality()
-        self.treasure_form = "Trade-Good"
 
         self._load_trade_good_dict()
         self._trade_good = self._build_treasure_object(self.treasure_dict.items())

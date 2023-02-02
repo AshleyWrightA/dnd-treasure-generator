@@ -1,0 +1,8 @@
+Tier,Level Range,Trove Dice,Coin Multiplier,Rarity Weight
+Apprentice,"1,2",2d6,25,"83,16,0,0,0"
+Journeyman,"3,4,5",3d6,50,"33,50,16,0,0"
+Adventurer,"6,7,8",3d6,100,"33,33,33,0,0"
+Veteran,"9,10,11",4d6,250,"16,16,50,16,0"
+Champion,"12,13,14",4d6,1000,"0,16,33,50,0"
+Heroic,"15,16,17",5d6,2500,"0,0,33,50,16"
+Legendary,"18,19,20",5d6,5000,"0,0,16,33,50"

@@ -1,7 +1,7 @@
 # Standard Library
 import random
 # Local
-import treasure
+from treasure_gen.treasure_components import treasure
 
 
 class Cash(treasure.Treasure):
