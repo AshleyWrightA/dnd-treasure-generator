@@ -19,21 +19,19 @@ class Gemstone():
     def __init__(self, game_tier_dict):
         super().__init__()
 
-        # Components
         self.game_tier_dict = game_tier_dict
-
-        self.quality = Quality().get_random_quality()
-
         self._load_gemstone()
-        self.name = self.gemstone["Name"]
 
+        # Components
+        self.quality = Quality().get_random_quality()
+        self.name = self.gemstone["Name"]
         self.gemstone_description = self.gemstone["Description"]
         self.rarity = self.gemstone["Rarity"]
         self.appraisal = Appraisal(self.quality, self.rarity, self.GEMSTONE_VALUE_DICE, self.GEMSTONE_VALUE_MULTIPLIER)
         self.weight = self.GEMSTONE_WEIGHT
         self.market_limits = MarketLimit(self.TREASURE_FORM, self.rarity)
-
-        self._set_gemstone_crafting_materials()
+        self.crafting_material_1 = CraftingMaterial(self.rarity, self.gemstone["Crafting-Material-1"])
+        self.crafting_material_2 = CraftingMaterial(self.rarity, self.gemstone["Crafting-Material-2"])
 
     def __str__(self):
         gem_str = "-" * 40 +"\n"
@@ -60,8 +58,3 @@ class Gemstone():
                     "Crafting-Material-1": e["Crafting-Material-1"], "Crafting-Material-2": e["Crafting-Material-2"]
                 }
             )
-    def _set_gemstone_crafting_materials(self):
-        if len(self.gemstone["Crafting-Material-1"]) != 0:
-            self.crafting_material_1 = CraftingMaterial(self.rarity, self.gemstone["Crafting-Material-1"])
-        if len(self.gemstone["Crafting-Material-2"]) != 0:
-            self.crafting_material_2 = CraftingMaterial(self.rarity, self.gemstone["Crafting-Material-2"])
