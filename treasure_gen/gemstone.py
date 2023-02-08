@@ -2,76 +2,66 @@
 import csv
 import random
 # Local
-from crafting_material import CraftingMaterial
-from treasure_gen.treasure_components import quality as q, treasure
+from treasure_gen.utilities import *
+from treasure_gen.treasure_components.quality import Quality
+from treasure_gen.treasure_components.appraisal import Appraisal
+from treasure_gen.treasure_components.market_limit import MarketLimit
+from treasure_gen.treasure_components.crafting_material import CraftingMaterial
 
+class Gemstone():
+    """Gemstones have pre-determined rarities and always have a weight of 1. They always have two crafting materials."""
 
-class Gemstone(treasure.Treasure):
-    """Gemstones have pre-determined rarities and always have a weight of 1. They have two crafting materials."""
-
-    GEMSTONE_APPRAISAL_DICE = "3d6"
-    GEMSTONE_APPRAISAL_MULTIPLIER = [5, 10, 50, 100]
+    TREASURE_FORM = "gemstone"
+    GEMSTONE_VALUE_DICE = "3d6"
+    GEMSTONE_VALUE_MULTIPLIER = [5, 10, 50, 100]
     GEMSTONE_WEIGHT = 1
 
-    def __init__(self):
+    def __init__(self, game_tier_dict):
         super().__init__()
 
-        self.treasure_form = "Gemstone"
-        self._set_quality()
+        # Components
+        self.game_tier_dict = game_tier_dict
 
-        self._load_gemstone_dict()
-        self._gemstone = self._build_treasure_object(self.treasure_dict.items())
+        self.quality = Quality().get_random_quality()
 
-        self.name = self._gemstone[0]
-        self.gemstone_description = self._gemstone[1]["Description"]
-        self.rarity = self._gemstone[1]["Rarity"]
-        self.value = self._appraisal(self.GEMSTONE_APPRAISAL_DICE, self.GEMSTONE_APPRAISAL_MULTIPLIER)
+        self._load_gemstone()
+        self.name = self.gemstone["Name"]
+
+        self.gemstone_description = self.gemstone["Description"]
+        self.rarity = self.gemstone["Rarity"]
+        self.appraisal = Appraisal(self.quality, self.rarity, self.GEMSTONE_VALUE_DICE, self.GEMSTONE_VALUE_MULTIPLIER)
         self.weight = self.GEMSTONE_WEIGHT
-        self._set_appraisal_DC()
+        self.market_limits = MarketLimit(self.TREASURE_FORM, self.rarity)
 
         self._set_gemstone_crafting_materials()
-        self._set_gemstone_market_limits()
 
     def __str__(self):
-        gem_str = ""
-        gem_str += f"{self._get_dm_treasure_string()}\n"
-        gem_str += f"Name: {self.name}\n"
+        gem_str = "-" * 40 +"\n"
+        gem_str += f"Gemstone: {self.name}\n"
         gem_str += f"Description: {self.gemstone_description}\n"
-        gem_str += f"Crafting Materials: {self.crafting_material_1}, {self.crafting_material_2}\n"
-        gem_str += f"Rarity: {self.crafting_material_1}, {self.crafting_material_2}\n"
+        gem_str += f"Rarity: {self.rarity}\n"
         gem_str += f"Weight: {self.weight}\n"
-        gem_str += f"Value(Silver): {self.value}\n"
-        gem_str += f"Appraisal DC: {self.appraisal_DC}\n"
         gem_str += f"Market Limits: {self.market_limits}\n"
+        gem_str += f"Crafting Materials: {self.crafting_material_1}, {self.crafting_material_2}\n"
+        gem_str += f"Appraisal DC: {self.appraisal.appraisal_DC}\n"
+        gem_str += f"Approx Value (Gold): {self.appraisal.appraisal_value}\n"
+        gem_str += f"{get_dm_treasure_string(self.quality, self.rarity, self.TREASURE_FORM, self.market_limits)}\n"
         gem_str += "-" * 40
         return gem_str
 
-    def _set_gemstone_market_limits(self):
-        if self.rarity == "Common" or self.rarity == "Uncommon":
-            self.market_limits = ["Village", "Town", "City"]
-        elif self.rarity == "Rare":
-            self.market_limits = ["Town", "City"]
-        elif self.rarity == "Very-Rare":
-            self.market_limits = ["City"]
-
-    def _load_gemstone_dict(self):
-        with open("treasure_gen/Gems.csv", "r") as input_file:
+    def _load_gemstone(self):
+        self.gemstone = {}
+        with open("treasure_data/Gemstones.csv", "r") as input_file:
             reader = csv.DictReader(input_file)
-            for e in reader:
-                self.treasure_dict.update(
-                    {e["Name"]: {"Description": e["Description"], "Crafting-Material-1": e["Crafting-Material-1"],
-                                 "Crafting-Material-2": e["Crafting-Material-2"], "Rarity": e["Rarity"]}}
-                )
-
+            e = random.choice(list(reader))
+            self.gemstone.update(
+                {
+                    "Name": e["Name"], "Description": e["Description"], "Rarity": e["Rarity"],
+                    "Crafting-Material-1": e["Crafting-Material-1"], "Crafting-Material-2": e["Crafting-Material-2"]
+                }
+            )
     def _set_gemstone_crafting_materials(self):
-        if len(self._gemstone[1]["Crafting-Material-1"]) != 0:
-            self.crafting_material_1 = CraftingMaterial(self.rarity, self._gemstone[1]["Crafting-Material-1"])
-        if len(self._gemstone[1]["Crafting-Material-2"]) != 0:
-            self.crafting_material_2 = CraftingMaterial(self.rarity, self._gemstone[1]["Crafting-Material-2"])
-
-    def _set_quality(self):
-        """Randomly determine a treasures quality. 30%/55%/15% of Inferior, Normal or Superior respectively.
-        A new value is not set if the result is 'Normal', leaving self.quality as None."""
-        temp_quality = (random.choices((q.Inferior, q.Normal, q.Superior), (30, 55, 15)))
-        if temp_quality != q.Normal:
-            self.quality = temp_quality
+        if len(self.gemstone["Crafting-Material-1"]) != 0:
+            self.crafting_material_1 = CraftingMaterial(self.rarity, self.gemstone["Crafting-Material-1"])
+        if len(self.gemstone["Crafting-Material-2"]) != 0:
+            self.crafting_material_2 = CraftingMaterial(self.rarity, self.gemstone["Crafting-Material-2"])

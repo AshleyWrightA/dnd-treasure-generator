@@ -1,7 +1,7 @@
 import csv
 
 from treasure_gen.treasure_components import treasure
-from crafting_material import CraftingMaterial
+from treasure_gen.treasure_components.crafting_material import CraftingMaterial
 
 
 class Trade_Good(treasure.Treasure):
