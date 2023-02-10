@@ -1,6 +1,3 @@
-import dice
-
-import art
 
 class Trove:
 
@@ -19,5 +16,5 @@ class Trove:
 
 
 
-    def set_trove_tier(self):
-        if self.get_average_player_level(self.)
+    #def set_trove_tier(self):
+    #   if self.get_average_player_level(self.)

@@ -1,8 +1,7 @@
 # Standard Library
 import csv
-import random
 # Local
-from treasure_gen.utilities import *
+from treasure_gen.utilities import get_random_treasure, get_dm_treasure_string
 from treasure_gen.treasure_components.quality import Quality
 from treasure_gen.treasure_components.appraisal import Appraisal
 from treasure_gen.treasure_components.market_limit import MarketLimit
@@ -16,17 +15,16 @@ class Gemstone:
     GEMSTONE_VALUE_MULTIPLIER = [5, 10, 50, 100]
     GEMSTONE_WEIGHT = 1
 
-    def __init__(self, game_tier_dict):
+    def __init__(self, rarity):
         super().__init__()
 
-        self.game_tier_dict = game_tier_dict
+        self.rarity = rarity
         self._load_gemstone()
 
         # Components
         self.quality = Quality().get_random_quality()
         self.name = self.gemstone["Name"]
         self.gemstone_description = self.gemstone["Description"]
-        self.rarity = self.gemstone["Rarity"]
         self.appraisal = Appraisal(self.quality, self.rarity, self.GEMSTONE_VALUE_DICE, self.GEMSTONE_VALUE_MULTIPLIER)
         self.weight = self.GEMSTONE_WEIGHT
         self.market_limits = MarketLimit(self.TREASURE_FORM, self.rarity)
@@ -50,13 +48,9 @@ class Gemstone:
         return gem_str
 
     def _load_gemstone(self):
-        self.gemstone = {}
+        self.gemstone = {"Rarity": None}
         with open("treasure_data/Gemstones.csv", "r") as input_file:
             reader = csv.DictReader(input_file)
-            e = random.choice(list(reader))
-            self.gemstone.update(
-                {
-                    "Name": e["Name"], "Description": e["Description"], "Rarity": e["Rarity"],
-                    "Crafting-Material-1": e["Crafting-Material-1"], "Crafting-Material-2": e["Crafting-Material-2"]
-                }
-            )
+            gemstone_list = list(reader)
+            while self.gemstone["Rarity"] != self.rarity:
+                self.gemstone = get_random_treasure(gemstone_list)

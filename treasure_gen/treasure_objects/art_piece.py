@@ -1,15 +1,15 @@
 import csv
+import os
 import random
 
 from treasure_gen.utilities import *
-from treasure_gen.treasure_components.rarity import Rarity
 from treasure_gen.treasure_components.quality import Quality
 from treasure_gen.treasure_components.appraisal import Appraisal
 from treasure_gen.treasure_components.market_limit import MarketLimit
 from treasure_gen.treasure_components.crafting_material import CraftingMaterial
 
 
-class Art:
+class ArtPiece:
     """Art objects have randomly determined rarities & some art-pieces have variable weight. They can have 1, 2 or no
     crafting materials."""
 
@@ -17,12 +17,11 @@ class Art:
     ART_VALUE_DICE = "3d6"
     ART_VALUE_MULTIPLIER = [10, 50, 100, 500, 1000]
 
-    def __init__(self, game_tier_dict):
+    def __init__(self, rarity):
 
+        self.rarity = rarity
         # Components
-        self.game_tier_dict = game_tier_dict
         self.quality = Quality().get_random_quality()
-        self.rarity = Rarity().get_random_rarity(self.game_tier_dict["Rarity Weight"])
         self.appraisal = Appraisal(self.quality, self.rarity, self.ART_VALUE_DICE, self.ART_VALUE_MULTIPLIER)
         self.market_limits = MarketLimit(self.TREASURE_FORM, self.rarity)
 
@@ -61,13 +60,10 @@ class Art:
             self.weight = temp_weight*5
 
     def _load_art_piece(self):
-        self.art_piece = {}
-        with open("./treasure_data/Art Pieces.csv", "r") as input_file:
+        with open("treasure_data/Art Pieces.csv", "r") as input_file:
             reader = csv.DictReader(input_file)
-            e = random.choice(list(reader))
-            self.art_piece.update(
-                {"Name": e["Name"], "Weight": e["Weight"], "Crafting-Material-1": e["Crafting-Material-1"],
-                             "Crafting-Material-2": e["Crafting-Material-2"]})
+            art_piece_list = list(reader)
+            self.art_piece = get_random_treasure(art_piece_list)
 
     def _set_art_piece_crafting_materials(self):
         if len(self.art_piece["Crafting-Material-1"]) != 0:

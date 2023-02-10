@@ -1,10 +1,9 @@
 # Standard Library
 import random
 # Local
-from treasure_gen.treasure_components import treasure
 
 
-class Cash(treasure.Treasure):
+class Cash:
     """Cash does not have quality and has preset rarity based off its material."""
 
     TREASURE_FORM = "Cash"

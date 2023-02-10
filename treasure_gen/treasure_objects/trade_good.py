@@ -5,7 +5,7 @@ from treasure_gen.treasure_components.quality import Quality
 from treasure_gen.treasure_components.appraisal import Appraisal
 from treasure_gen.treasure_components.market_limit import MarketLimit
 from treasure_gen.treasure_components.crafting_material import CraftingMaterial
-from treasure_gen.utilities import get_dm_treasure_string
+from treasure_gen.utilities import get_dm_treasure_string, get_random_treasure
 
 class TradeGood:
     """Trade Goods have pre-determined rarities & weights. They can have 1 crafting material.
@@ -16,16 +16,15 @@ class TradeGood:
     TRADE_GOOD_VALUE_DICE = "1d6"
     TRADE_GOOD_VALUE_MULTIPLIER = [1, 5, 10, 50]
 
-    def __init__(self, game_tier_dict):
+    def __init__(self, rarity):
         super().__init__()
 
-        self.game_tier_dict = game_tier_dict
+        self.rarity = rarity
         self.quality = Quality().get_random_quality()
         self._load_trade_good()
 
         self.name = self.trade_good["Name"]
         self.category = self.trade_good["Category"]
-        self.rarity = self.trade_good["Rarity"]
         self.weight = self.trade_good["Weight"]
         self.appraisal = Appraisal(self.quality, self.rarity, self.TRADE_GOOD_VALUE_DICE, self.TRADE_GOOD_VALUE_MULTIPLIER)
         self.market_limits = MarketLimit(self.TREASURE_FORM, self.rarity)
@@ -49,12 +48,12 @@ class TradeGood:
         return tg_str
 
     def _load_trade_good(self):
-        self.trade_good = {}
+        self.trade_good = {"Rarity": None}
         with open("treasure_data/Trade Goods.csv", "r") as input_file:
             reader = csv.DictReader(input_file)
-            e = random.choice(list(reader))
-            self.trade_good.update({"Name": e["Name"], "Category": e["Category"], "Rarity": e["Rarity"],
-                                    "Weight": e["Weight"], "Crafting-Material-1": e["Crafting-Material-1"]})
+            trade_good_list = list(reader)
+            while self.trade_good["Rarity"] != self.rarity:
+                self.trade_good = get_random_treasure(trade_good_list)
 
     def _set_trade_good_crafting_materials(self):
         if len(self.trade_good["Crafting-Material-1"]) != 0:
