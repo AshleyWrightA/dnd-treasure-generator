@@ -28,7 +28,7 @@ class MarketLimit:
             elif self.rarity == "Legendary":
                 self.market_limits = ["City"]
 
-        if self.treasure_form == "gemstone":
+        if self.treasure_form == "Gemstone":
             if self.rarity == "Common" or self.rarity == "Uncommon":
                 self.market_limits = ["Village", "Town", "City"]
             elif self.rarity == "Rare":

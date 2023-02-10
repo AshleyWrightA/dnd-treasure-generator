@@ -34,7 +34,9 @@ class Art:
         self._set_art_piece_crafting_materials()
 
     def __str__(self):
-        art_str = "-"*40+"\n"
+        art_str = f"-"*40+"\n"
+        art_str += f"{self.TREASURE_FORM}\n".capitalize()
+        art_str += f"-"*40+"\n"
         art_str += f"Art-Piece: {self.name}\n"
         art_str += f"Rarity: {self.rarity}\n"
         art_str += f"Weight: {self.weight}lbs\n"
@@ -50,11 +52,12 @@ class Art:
         return art_str
 
     def _set_art_weight(self):
-        art_piece_weights = ["5lb (Tiny)", "10lb (Small)", "20lb (Medium)", "30lb (Big)", "40lb (Large)"]
+        art_piece_size = [5, 10, 20, 30, 40]
         temp_weight = int(self.art_piece["Weight"])
         if temp_weight == 0:
-            self.weight = random.choice(art_piece_weights)
+            self.weight = random.choice(art_piece_size)
         else:
+            # Weights in CSV are using SimpleWeight
             self.weight = temp_weight*5
 
     def _load_art_piece(self):

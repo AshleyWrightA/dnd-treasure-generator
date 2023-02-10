@@ -8,10 +8,10 @@ from treasure_gen.treasure_components.appraisal import Appraisal
 from treasure_gen.treasure_components.market_limit import MarketLimit
 from treasure_gen.treasure_components.crafting_material import CraftingMaterial
 
-class Gemstone():
+class Gemstone:
     """Gemstones have pre-determined rarities and always have a weight of 1. They always have two crafting materials."""
 
-    TREASURE_FORM = "gemstone"
+    TREASURE_FORM = "Gemstone"
     GEMSTONE_VALUE_DICE = "3d6"
     GEMSTONE_VALUE_MULTIPLIER = [5, 10, 50, 100]
     GEMSTONE_WEIGHT = 1
@@ -35,6 +35,8 @@ class Gemstone():
 
     def __str__(self):
         gem_str = "-" * 40 +"\n"
+        gem_str += f"{self.TREASURE_FORM}\n"
+        gem_str += "-"*40+"\n"
         gem_str += f"Gemstone: {self.name}\n"
         gem_str += f"Description: {self.gemstone_description}\n"
         gem_str += f"Rarity: {self.rarity}\n"
