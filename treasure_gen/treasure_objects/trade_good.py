@@ -36,10 +36,12 @@ class TradeGood:
         tg_str += "-"*40+"\n"
         tg_str += f"Name: {self.name}\n"
         tg_str += f"Category: {self.category}\n"
-        if hasattr(self, "crafting_material_1"):
-            tg_str += f"Crafting Material: {self.crafting_material_1}\n"
+        if self.quality != "Normal":
+            tg_str += f"Quality: {self.quality}\n"
         tg_str += f"Rarity: {self.rarity}\n"
         tg_str += f"Weight: {self.weight}\n"
+        if hasattr(self, "crafting_material_1"):
+            tg_str += f"Crafting Material: {self.crafting_material_1}\n"
         tg_str += f"Market Limits: {self.market_limits}\n"
         tg_str += f"Appraisal DC: {self.appraisal.appraisal_DC}\n"
         tg_str += f"Approx Value (Gold): {self.appraisal.appraisal_value}\n"

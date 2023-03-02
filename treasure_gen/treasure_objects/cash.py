@@ -4,18 +4,13 @@ import random
 
 
 class Cash:
-    """Cash does not have quality and has preset rarity based off its material."""
-
+    """Cash comes in the form of coins or bars."""
     TREASURE_FORM = "Cash"
 
-    def __init__(self, players):
+    def __init__(self, party_size):
         super().__init__()
 
-        self.treasure_form = "Cash"
-        self.players = players
-        self._cash_material = None
-        self._cash_form = None
-        self._cash_crafting_material = None
+        self.party_size = party_size
 
         self._set_cash_material()
         self._set_cash_form()
@@ -62,13 +57,13 @@ class Cash:
         if self._cash_form == "Coins":
             result = 1
             if self._cash_material == "Copper":
-                while result % self.players != 0:
+                while result % self.party_size != 0:
                     result = random.randint(100, 1000)
             elif self._cash_material == "Silver":
-                while result % self.players != 0:
+                while result % self.party_size != 0:
                     result = random.randint(10, 100)
             elif self._cash_material == "Gold":
-                while result % self.players != 0:
+                while result % self.party_size != 0:
                     result = random.randint(1, 10)
             self.value = result
 
@@ -85,4 +80,4 @@ class Cash:
             self._cash_crafting_material = "Metal"
 
     def _get_coins_divided(self):
-        return self.value // self.players
+        return self.value // self.party_size

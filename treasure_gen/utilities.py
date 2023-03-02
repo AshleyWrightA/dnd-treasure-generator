@@ -1,18 +1,21 @@
 import random
 
-def get_valid_int(message):
-    int_input = 0
-    try:
-        int_input = int(input(message))
-    except ValueError:
-        print("Must be a number!")
-        get_valid_int(message)
-    else:
-        if int_input <= 0:
-            print("Must be a positive number!")
-            get_valid_int(message)
+def get_valid_int(message, allow_zero=False):
+    int_input = -1
+    while int_input == -1:
+        try:
+            int_input = int(input(message))
+        except ValueError:
+            print("Must be a number!")
         else:
-            return int_input
+            if allow_zero and int_input <= -1:
+                print("Must be a positive number!")
+            if allow_zero and int_input >= 0:
+                return int_input
+            if not allow_zero and int_input <= 0:
+                print("Must be a positive number!")
+            if not allow_zero and int_input >= 1:
+                return int_input
 
 def int_string_to_list(_):
     return list(map(int, _.split(",")))

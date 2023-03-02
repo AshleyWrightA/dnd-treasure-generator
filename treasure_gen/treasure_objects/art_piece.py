@@ -37,6 +37,8 @@ class ArtPiece:
         art_str += f"{self.TREASURE_FORM}\n".capitalize()
         art_str += f"-"*40+"\n"
         art_str += f"Art-Piece: {self.name}\n"
+        if self.quality != "Normal":
+            art_str += f"Quality: {self.quality}\n"
         art_str += f"Rarity: {self.rarity}\n"
         art_str += f"Weight: {self.weight}lbs\n"
         art_str += f"Market Limits: {self.market_limits}\n"

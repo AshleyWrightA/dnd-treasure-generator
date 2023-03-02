@@ -1,0 +1,7 @@
+Balanced	,More Trade Goods,More Art Objects,More Gemstones,No Trade Goods,No Art Objects,No Gemstones
+Trade Good,Trade Good,Trade Good,Trade Good,Gemstone,Trade Good,Trade Good
+Trade Good,Trade Good,Gemstone,Art Object,Gemstone,Trade Good,Trade Good
+Gemstone,Trade Good,Gemstone,Art Object,Gemstone,Trade Good,Trade Good
+Gemstone,Gemstone,Art Object,Gemstone,Art Object,Gemstone,Art Object
+Art Object,Gemstone,Art Object,Gemstone,Art Object,Gemstone,Art Object
+Art Object,Art Object,Art Object,Gemstone,Art Object,Gemstone,Art Object

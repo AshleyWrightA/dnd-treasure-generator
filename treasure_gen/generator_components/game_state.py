@@ -24,3 +24,9 @@ class GameState:
 
     def get_tier(self):
         return self.game_tier.tier
+
+    def get_trove_dice_count(self):
+        return int(self.game_tier.trove_dice)
+
+    def get_coin_multiplier(self):
+        return int(self.game_tier.coin_multiplier)

@@ -11,5 +11,5 @@ class Quality:
         return self.quality
     def get_random_quality(self):
         """Returns a random quality. Inferior: 8%, Normal: 83%, Superior: 8%"""
-        self.quality = random.choices(("Inferior", "Normal", "Superior"), weights=(8,83,8))[0]
-        return self.quality
+        self.quality = random.choices(("inferior", "normal", "superior"), weights=(8,83,8))[0]
+        return self.quality.capitalize()

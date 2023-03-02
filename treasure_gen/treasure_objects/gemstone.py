@@ -37,6 +37,8 @@ class Gemstone:
         gem_str += "-"*40+"\n"
         gem_str += f"Gemstone: {self.name}\n"
         gem_str += f"Description: {self.gemstone_description}\n"
+        if self.quality != "Normal":
+            gem_str += f"Quality: {self.quality}\n"
         gem_str += f"Rarity: {self.rarity}\n"
         gem_str += f"Weight: {self.weight}\n"
         gem_str += f"Market Limits: {self.market_limits}\n"
